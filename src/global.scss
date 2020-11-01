@@ -1,0 +1,28 @@
+:root {
+    //Colors
+
+    font-size: 60%
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+html, body, #root {
+    /*Ocupa 100% da tela*/
+    height: 100vh;
+}
+
+#root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-widht: 700px){
+    :root{
+        font-size: 62.5%;
+    }
+}
