@@ -1,6 +1,6 @@
 import React from 'react';
-import { ButtonComponent } from "./components/button"
-// import { Container } from './styles';
+import { ButtonComponent } from "../components/button"
+import { Link } from 'react-router-dom'
 
 function Landing() {
   return(
@@ -10,7 +10,9 @@ function Landing() {
           </div>
           <div className='direita'>
             <h1>Clique na seta e comece seu planejamento</h1>
-                <ButtonComponent>></ButtonComponent>
+                <ButtonComponent>
+                  <Link to="/informeSalario">></Link>
+                </ButtonComponent>
           </div>    
       </div>
   )

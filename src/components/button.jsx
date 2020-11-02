@@ -6,6 +6,10 @@ const Styles = [
     "btn--primary--solid"
 ]
 
+const Sizes = [
+    "btn--small",
+]
+
 export const ButtonComponent = ({
     children,
     type,
