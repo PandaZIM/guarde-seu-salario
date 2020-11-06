@@ -2,43 +2,31 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 // import { Container } from './styles'
 
-class InformeSalario extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      value: 0
-    }
-
-    this.handleChage = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-  handleChange(event) {
-    this.setState({ value: event.target.value })
+function InformeSalario() {
+  
+  const [valor, setValor] = useState()
+  
+  function handleChange(){
+    console.log(valor)
   }
 
-  handleSubmit(event) {
-    console.log(event.target.value)
-  }
-
-  render() {
-    const { value } = this.state
   return (
       <div className="principal">
           <span>Informe a quantia que deseja planejar e o tipo da moeda</span>
           <div className="inputs">
             <input 
-              type="text"
+              type="numeric"
               placeholder="Quantidade"
-              value={value}
-              onChange={this.handleChange}
+              onChange={e => setValor(e.target.value)}
             />
             <select name="dinheiro" id="dinheiro">
                 <option value="real">Real R$</option>
                 <option value="dolar">Dolar $</option>
             </select>
           </div>
-          <button type="submit"
-          onClick={this.handleSubmit}> 
+          <button 
+            type="submit"
+            onClick={handleChange}> 
             <Link>
               Confirma
             </Link>
@@ -46,7 +34,6 @@ class InformeSalario extends React.Component {
       </div>
   );
 
-  }
 }
 
 export default InformeSalario;
