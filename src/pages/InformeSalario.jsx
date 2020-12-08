@@ -1,13 +1,26 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
+import Operacoes from './Operacoes';
 // import { Container } from './styles'
 
 function InformeSalario() {
   
   const [valor, setValor] = useState()
-  
-  function handleChange(){
-    console.log(valor)
+  const [valorClique, setValorClique] = useState(0)
+
+  const [valorSubtraido, setValorSubtraido] = useState([])
+
+  //funcao que cria mais inputs ao clique
+  function criaInputs(){
+    const criaNovoInput = document.createElement('div')
+
+    criaNovoInput.innerHTML = "<input type='text' id='novoInput'"
+
+    document.getElementById("Botoes").appendChild(criaNovoInput)
+  }
+
+  function handleClick(){
+    setValorClique(valor)
   }
 
   return (
@@ -17,6 +30,7 @@ function InformeSalario() {
             <input 
               type="numeric"
               placeholder="Quantidade"
+              id="inputValor"
               onChange={e => setValor(e.target.value)}
             />
             <select name="dinheiro" id="dinheiro">
@@ -26,11 +40,18 @@ function InformeSalario() {
           </div>
           <button 
             type="submit"
-            onClick={handleChange}> 
+            onClick={handleClick}> 
             <Link>
               Confirma
             </Link>
           </button>
+          <div>
+              {valorClique}
+          </div>
+          <div>
+              <input type="text" id="Botoes"/>
+              <input type="button" value="+" onClick={criaInputs}/>
+          </div>
       </div>
   );
 
