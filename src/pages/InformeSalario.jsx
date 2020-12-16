@@ -10,13 +10,13 @@ function InformeSalario() {
 
   const [valorSubtraido, setValorSubtraido] = useState([])
 
+  const [inputs, setInputs] = useState([])
+
+
   //funcao que cria mais inputs ao clique
   function criaInputs(){
-    const criaNovoInput = document.createElement('div')
-
-    criaNovoInput.innerHTML = "<input type='text' id='novoInput'"
-
-    document.getElementById("Botoes").appendChild(criaNovoInput)
+    console.log(inputs)
+    setInputs(prevInputs => [...prevInputs, `${prevInputs.length}`])
   }
 
   function handleClick(){
@@ -49,9 +49,19 @@ function InformeSalario() {
               {valorClique}
           </div>
           <div>
-              <input type="text" id="Botoes"/>
+              {inputs.map((input, index) => {
+                <div key={index}>
+                  <input value={input}/>
+                </div>
+              })}
+              <form>
+                <input type="text" id="Botoes"/>
+              </form>
+
               <input type="button" value="+" onClick={criaInputs}/>
+
           </div>
+
       </div>
   );
 
